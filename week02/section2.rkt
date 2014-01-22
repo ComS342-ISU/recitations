@@ -93,6 +93,7 @@
     (number? #xBEEF)
     (integer? 1)
     (integer? 1.2)
+    (integer? #xBEEF)
 
   )
 
@@ -237,18 +238,6 @@
     (null? (list))
 
   )
-
-  ;
-  ; Comparisons
-  ;
-
-  (define (comparisons)
-
-    (eq? 'hello 'hello)
-    (eq? 'apple 'apple)
-    (eq? 'apple "apple")
-
-    )
   )
 
 ;
@@ -412,6 +401,10 @@
     (else 5))
   )
 
+;
+; Let
+;
+
 (define (flet)
 
   ; Simple
@@ -434,16 +427,46 @@
 ; Recursion!
 ;
 
-; Sum all integers from 1 to n
-(define (sum n)
-  'unimplemented)
+; Factorial of n
+(define (factorial n)
+  (if
+    (= n 1)
+    1
+    (* n (factorial (- n 1))))
+  )
+
+(factorial 1)
+; 1
+(factorial 4)
+; (* 4 (* 3 (* 2 1 1)))
 
 ; Create integer range from p to r
 (define (range p r)
-  'unimplemented)
+  (cond
+    ((> p r) '())
+    (else
+      (cons
+        p
+        (range
+          (+ p 1)
+          r)
+        )
+      )
+    )
+  )
+
+(range 1 10)
+; (1 2 3 4 5 6 7.. 10)
 
 ; Basic sequential search:
 ;   Return #t if q is found in l
 ;   Else #f
 (define (seq-search q l)
-  'unimplemented)
+  (cond
+    ((null? l) #f)
+    ((= q (car l)) #t)
+    (else
+      (seq-search
+        q
+        (cdr l))))
+  )
