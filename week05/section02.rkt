@@ -1,3 +1,6 @@
+#lang racket
+(#%provide (all-defined))
+
 ;
 ; ComS342 - Spring 2014
 ;
