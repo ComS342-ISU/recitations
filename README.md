@@ -15,7 +15,7 @@ Section 2 (4pm) recitation is with [Josh Davis](https://github.com/jdavis).
 - [Week 4](week04/)
 - [Week 5](week05/)
 - [Week 6](week06/)
-- Week 7
+- [Week 7](week07/)
 - Week 8
 - Week 9
 - Week 10
