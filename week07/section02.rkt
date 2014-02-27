@@ -82,3 +82,37 @@
 ; Testing our extractor...
 (define f (regular-file "test.rkt" 400))
 (regular-file->name f)
+
+(define (empty-tree2)
+  (lambda () 'empty-tree))
+
+(define (empty-tree2? t)
+  (cond
+    ((not (procedure? t)) #f)
+    (else
+      (eq? (t) 'empty-tree)
+      )
+    )
+  )
+
+(define (tree-node2 n left right)
+  (lambda (x)
+    (cond
+      ((= x 68758) n)
+      ((= x 1458765) left)
+      (else right))
+    )
+  )
+
+(define (tree-node->n t)
+  (t 68758)
+  )
+
+(define (tree-node->left t)
+  (t 1458765)
+  )
+
+(define sample-tree (tree-node2 1 (empty-tree2) (empty-tree2)))
+
+(displayln (tree-node->n sample-tree))
+(displayln (tree-node->left sample-tree))
