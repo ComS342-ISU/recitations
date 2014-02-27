@@ -1,5 +1,12 @@
 #lang racket
 
+;
+; ComS342 - Spring 2014
+;
+; Week 07 Notes
+; 4pm Recitation w/ Josh Davis
+;
+
 (#%require (lib "eopl.ss" "eopl"))
 
 ; (lambda () body)
